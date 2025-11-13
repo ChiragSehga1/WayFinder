@@ -51,12 +51,8 @@ public class mongoDBFunctions {
             }
         }
     }
-    
-    // 1. Add a record given the fields to be filled for all tables
-    
-    /**
-     * Add a user to UserDatabase collection
-     */
+
+     // Add a user to UserDatabase collection
     public static boolean addUser(String username, String name, String contact, String lastLocation, String password) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
@@ -76,9 +72,7 @@ public class mongoDBFunctions {
         }
     }
     
-    /**
-     * Add a friend request to Requests collection
-     */
+    //Add a friend request to Requests collection
     public static boolean addRequest(String sender, String receiver, int requestStatus) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Requests");
@@ -96,17 +90,18 @@ public class mongoDBFunctions {
         }
     }
     
-    /**
-     * Add a friendship to Friends collection
-     */
+     //Add a friendship to Friends collection
     public static boolean addFriend(String userName1, String userName2) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Friends");
             
             Document friendship = new Document("userName1", userName1)
                     .append("userName2", userName2);
+            Document friendship2 = new Document("userName1", userName2)
+                    .append("userName2", userName1);
             
             collection.insertOne(friendship);
+            collection.insertOne(friendship2);
             System.out.println("Friendship added successfully: " + userName1 + " <-> " + userName2);
             return true;
         } catch (MongoException e) {
@@ -114,12 +109,8 @@ public class mongoDBFunctions {
             return false;
         }
     }
-    
-    // 2. Remove a record given a username for all tables
-    
-    /**
-     * Remove a user from UserDatabase collection
-     */
+
+     // Remove a user from UserDatabase collection
     public static boolean removeUser(String username) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
@@ -140,9 +131,7 @@ public class mongoDBFunctions {
         }
     }
     
-    /**
-     * Remove a request from Requests collection (only if requestStatus = 1)
-     */
+     // Remove a request from Requests collection (only if requestStatus = 1)
     public static boolean removeRequest(String sender, String receiver) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Requests");
@@ -165,10 +154,8 @@ public class mongoDBFunctions {
             return false;
         }
     }
-    
-    /**
-     * Remove friendship from Friends collection (removes both directions)
-     */
+
+    //Remove friendship from Friends collection (removes both directions
     public static boolean removeFriend(String userName1, String userName2) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Friends");
@@ -199,36 +186,29 @@ public class mongoDBFunctions {
         }
     }
     
-    // 3. Return all requests given a Receiver
-    
-    /**
-     * Get all requests for a specific receiver
-     */
-    public static List<Document> getAllRequests(String receiver) {
-        List<Document> requests = new ArrayList<>();
+    // 3. Return all pending request senders for a given receiver
+    public static List<String> getPendingRequests(String receiver) {
+        List<String> senders = new ArrayList<>();
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Requests");
             
-            Document filter = new Document("receiver", receiver);
+            Document filter = new Document("receiver", receiver).append("requestStatus",0);
             FindIterable<Document> results = collection.find(filter);
             
             for (Document doc : results) {
-                requests.add(doc);
+                senders.add(doc.getString("sender"));
             }
             
-            System.out.println("Found " + requests.size() + " requests for receiver: " + receiver);
-            return requests;
+            System.out.println("Found " + senders.size() + " pending requests for receiver: " + receiver);
+            System.out.println("Senders " + senders);
+            return senders;
         } catch (MongoException e) {
             System.err.println("Error getting requests: " + e.getMessage());
-            return requests;
+            return senders;
         }
     }
     
     // 4. Return all friends given UserName1
-    
-    /**
-     * Get all friends for a specific user
-     */
     public static List<String> getAllFriends(String userName1) {
         List<String> friends = new ArrayList<>();
         try {
@@ -242,6 +222,7 @@ public class mongoDBFunctions {
             }
             
             System.out.println("Found " + friends.size() + " friends for user: " + userName1);
+            System.out.println("Friends " + friends);
             return friends;
         } catch (MongoException e) {
             System.err.println("Error getting friends: " + e.getMessage());
@@ -250,10 +231,6 @@ public class mongoDBFunctions {
     }
     
     // 5. Check if password matches a username's pass and only return true or false
-    
-    /**
-     * Verify password for a username
-     */
     public static boolean verifyPassword(String username, String password) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
@@ -273,10 +250,6 @@ public class mongoDBFunctions {
     }
     
     // 6. Return name, contact given username
-    
-    /**
-     * Get user details (name and contact) by username
-     */
     public static Document getUserDetails(String username) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
@@ -302,10 +275,6 @@ public class mongoDBFunctions {
     }
     
     // 7. Accept a friend request (set requestStatus = 1)
-    
-    /**
-     * Accept a friend request by updating requestStatus to 1
-     */
     public static boolean acceptRequest(String sender, String receiver) {
         try {
             MongoCollection<Document> collection = database.getCollection("Users.Requests");
@@ -331,38 +300,154 @@ public class mongoDBFunctions {
         }
     }
     
-    /**
-     * Test function to demonstrate all database operations
-     */
+    // 8. Get user's current location
+    public static String getLocation(String username) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
+            
+            Document filter = new Document("username", username);
+            Document projection = new Document("lastLocation", 1)
+                    .append("_id", 0);
+            
+            Document user = collection.find(filter).projection(projection).first();
+            
+            if (user != null) {
+                String location = user.getString("lastLocation");
+                System.out.println("Location for " + username + ": " + location);
+                return location;
+            } else {
+                System.out.println("No user found with username: " + username);
+                return null;
+            }
+        } catch (MongoException e) {
+            System.err.println("Error getting user location: " + e.getMessage());
+            return null;
+        }
+    }
+    
+    // 9. Update user's location
+    public static boolean updateLocation(String username, String newLocation) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
+            
+            Document filter = new Document("username", username);
+            Document update = new Document("$set", new Document("lastLocation", newLocation));
+            
+            long modifiedCount = collection.updateOne(filter, update).getModifiedCount();
+            
+            if (modifiedCount > 0) {
+                System.out.println("Location updated successfully for " + username + ": " + newLocation);
+                return true;
+            } else {
+                System.out.println("Location remains the same OR No user found with username: " + username);
+                return false;
+            }
+        } catch (MongoException e) {
+            System.err.println("Error updating user location: " + e.getMessage());
+            return false;
+        }
+    }
+    
+    // 10. Display all records from all three collections
+    public static void displayAllDatabases() {
+        try {
+            System.out.println("\n=== DISPLAYING ALL DATABASE RECORDS ===");
+            
+            // Display Users.UserDatabase
+            System.out.println("\n--- Users.UserDatabase ---");
+            MongoCollection<Document> userCollection = database.getCollection("Users.UserDatabase");
+            FindIterable<Document> users = userCollection.find();
+            int userCount = 0;
+            for (Document user : users) {
+                userCount++;
+                System.out.println("User " + userCount + ": " + user.toJson());
+            }
+            System.out.println("Total Users: " + userCount);
+            
+            // Display Users.Requests
+            System.out.println("\n--- Users.Requests ---");
+            MongoCollection<Document> requestCollection = database.getCollection("Users.Requests");
+            FindIterable<Document> requests = requestCollection.find();
+            int requestCount = 0;
+            for (Document request : requests) {
+                requestCount++;
+                System.out.println("Request " + requestCount + ": " + request.toJson());
+            }
+            System.out.println("Total Requests: " + requestCount);
+            
+            // Display Users.Friends
+            System.out.println("\n--- Users.Friends ---");
+            MongoCollection<Document> friendCollection = database.getCollection("Users.Friends");
+            FindIterable<Document> friends = friendCollection.find();
+            int friendshipCount = 0;
+            for (Document friendship : friends) {
+                friendshipCount++;
+                System.out.println("Friendship " + friendshipCount + ": " + friendship.toJson());
+            }
+            System.out.println("Total Friendships: " + friendshipCount);
+            
+            System.out.println("\n=== DATABASE DISPLAY COMPLETE ===");
+            
+        } catch (MongoException e) {
+            System.err.println("Error displaying databases: " + e.getMessage());
+        }
+    }
+    
+     //Test function to demonstrate all database operations
     public static void testDatabaseFunctions() {
         System.out.println("\n=== Testing Database Functions ===");
         
         // Test adding users
-        addUser("john_doe", "John Doe", "123-456-7890", "New York", "password123");
-        addUser("jane_smith", "Jane Smith", "098-765-4321", "Los Angeles", "securepass");
-        
+//        addUser("a.sh*t", "Akshat Patiyal", "098-765-4321", "73.444,27.3333", "1234");
+//        addUser("snehgal", "Chirag Sehgal", "198-765-4321", "83.444,27.3333", "1234");
+        removeUser("jasjyotg");
+        addUser("jasjyotg", "Jasjyot Gulati", "298-765-4321", "93.444,27.3333", "1234");
+//        addUser("cobalt", "Dhruv Jaiswal", "398-765-4321", "103.444,27.3333", "1234");
+//        addUser("admin", "Admin", "498-765-4321", "173.444,27.3333", "1234");
+
+
         // Test adding requests
-        addRequest("john_doe", "jane_smith", 0);
-        addRequest("jane_smith", "john_doe", 0);
-        
+        addRequest("snehgal", "a.sh*t", 0);
+        addRequest("jasjyotg", "a.sh*t", 0);
+
         // Test accepting a request
-        acceptRequest("jane_smith", "john_doe");
-        
-        // Test adding friends
-        addFriend("john_doe", "jane_smith");
-        
+        acceptRequest("jasjyotg", "a.sh*t");
+
         // Test getting requests
-        getAllRequests("jane_smith");
-        
+        getPendingRequests("a.sh*t");
+
+        // Test adding and removing friends
+        removeFriend("jasjyotg", "a.sh*t");
+        removeFriend("jasjyotg", "cobalt");
+        removeFriend("jasjyotg", "snehgal");
+        removeFriend("cobalt", "snehgal");
+
+        getAllFriends("jasjyotg");
+
+        addFriend("jasjyotg", "a.sh*t");
+        addFriend("jasjyotg", "cobalt");
+        addFriend("jasjyotg", "snehgal");
+        addFriend("cobalt", "snehgal");
+
         // Test getting friends
-        getAllFriends("john_doe");
-        
+        getAllFriends("jasjyotg");
+
         // Test password verification
-        verifyPassword("john_doe", "password123");
-        verifyPassword("john_doe", "wrongpass");
-        
+        verifyPassword("admin", "1234");
+
         // Test getting user details
-        getUserDetails("john_doe");
+        getUserDetails("a.sh*t");
+
+        // Display all database records
+        displayAllDatabases();
+
+        // Test updating user location
+        getUserDetails("jasjyotg");
+
+        // Test getting user location
+        getLocation("jasjyotg");
+        updateLocation("jasjyotg", "28.6139,77.2090");
+        getLocation("jasjyotg");
         
         System.out.println("\n=== Database Functions Test Complete ===");
     }

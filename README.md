@@ -33,18 +33,26 @@ The following functions are implemented in `mongoDBFunctions.java`:
   - Removes a friendship from `Users.Friends` (both directions).
 
 ### 3. Query Functions
-- `getAllRequests(String receiver)`
-  - Returns all requests for a specific receiver.
+- `getPendingRequests(String receiver)`
+  - Returns a list of senders who have sent pending friend requests to the receiver.
 - `getAllFriends(String userName1)`
   - Returns all friends for a specific user.
 - `verifyPassword(String username, String password)`
   - Verifies if the password matches the username.
 - `getUserDetails(String username)`
   - Returns the `name` and `contact` for a specific username.
+- `getLocation(String username)`
+  - Returns the `lastLocation` for a specific username.
 
 ### 4. Update Functions
 - `acceptRequest(String sender, String receiver)`
   - Accepts a friend request by updating `requestStatus` from 0 to 1.
+- `updateLocation(String username, String newLocation)`
+  - Updates the `lastLocation` for a specific username.
+
+### 5. Display Functions
+- `displayAllDatabases()`
+  - Displays all records from all three collections (UserDatabase, Requests, Friends).
 
 ## Usage Example
 Here is an example of how to use the functions:
@@ -62,8 +70,8 @@ mongoDBFunctions.acceptRequest("john_doe", "jane_smith");
 // Add a friendship
 mongoDBFunctions.addFriend("john_doe", "jane_smith");
 
-// Get all requests for a receiver
-List<Document> requests = mongoDBFunctions.getAllRequests("jane_smith");
+// Get pending request senders for a receiver
+List<String> pendingRequestSenders = mongoDBFunctions.getPendingRequests("jane_smith");
 
 // Get all friends for a user
 List<String> friends = mongoDBFunctions.getAllFriends("john_doe");
@@ -73,6 +81,15 @@ boolean isValid = mongoDBFunctions.verifyPassword("john_doe", "password123");
 
 // Get user details
 Document userDetails = mongoDBFunctions.getUserDetails("john_doe");
+
+// Get user location
+String userLocation = mongoDBFunctions.getLocation("john_doe");
+
+// Update user location
+boolean locationUpdated = mongoDBFunctions.updateLocation("john_doe", "40.7128,-74.0060");
+
+// Display all database records
+mongoDBFunctions.displayAllDatabases();
 ```
 
 ## Notes
