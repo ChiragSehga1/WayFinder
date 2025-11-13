@@ -14,7 +14,7 @@ The project uses the following MongoDB collections:
    - Fields: `userName1`, `userName2`
 
 ## Available Functions
-The following functions are implemented in `MongoClientConnectionExample.java`:
+The following functions are implemented in `mongoDBFunctions.java`:
 
 ### 1. Add Records
 - `addUser(String username, String name, String contact, String lastLocation, String password)`
@@ -47,7 +47,7 @@ Here is an example of how to use the functions:
 
 ```java
 // Add a user
-MongoClientConnectionExample.addUser("john_doe", "John Doe", "123-456-7890", "New York", "password123");
+mongoDBFunctions.addUser("john_doe", "John Doe", "123-456-7890", "New York", "password123");
 
 // Add a friend request
 mongoDBFunctions.addRequest("john_doe", "jane_smith", 0);
