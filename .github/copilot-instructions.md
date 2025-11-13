@@ -18,11 +18,11 @@ WayFinder is a Computer Networks course project with a multi-tier architecture f
 
 ### Build & Run Workflows
 Two execution methods available:
-1. **Maven**: `mvn exec:java` (uses exec-maven-plugin with mainClass: MongoClientConnectionExample)
+1. **Maven**: `mvn exec:java` (uses exec-maven-plugin with mainClass: mongoDBFunctions)
 2. **Manual**: Use provided scripts
    - Windows: `run.bat` or `run.ps1` 
    - Compiles with: `javac -cp "lib\*" src\main\java\*.java -d .`
-   - Runs with: `java -cp ".;lib\*" MongoClientConnectionExample`
+   - Runs with: `java -cp ".;lib\*" mongoDBFunctions`
 
 ### MongoDB Integration
 - Uses MongoDB Java Driver 4.11.1 with ServerAPI V1

@@ -1,7 +1,7 @@
 # WayFinder
 
 ## Overview
-WayFinder is a Computer Networks course project that integrates MongoDB with Java to manage user data, requests, and friendships. This document provides guidance for developers writing logic to call the database functions implemented in `MongoClientConnectionExample.java`.
+WayFinder is a Computer Networks course project that integrates MongoDB with Java to manage user data, requests, and friendships. This document provides guidance for developers writing logic to call the database functions implemented in `mongoDBFunctions.java`.
 
 ## Database Collections
 The project uses the following MongoDB collections:
@@ -42,6 +42,10 @@ The following functions are implemented in `mongoDBFunctions.java`:
 - `getUserDetails(String username)`
   - Returns the `name` and `contact` for a specific username.
 
+### 4. Update Functions
+- `acceptRequest(String sender, String receiver)`
+  - Accepts a friend request by updating `requestStatus` from 0 to 1.
+
 ## Usage Example
 Here is an example of how to use the functions:
 
@@ -51,6 +55,9 @@ mongoDBFunctions.addUser("john_doe", "John Doe", "123-456-7890", "New York", "pa
 
 // Add a friend request
 mongoDBFunctions.addRequest("john_doe", "jane_smith", 0);
+
+// Accept a friend request
+mongoDBFunctions.acceptRequest("john_doe", "jane_smith");
 
 // Add a friendship
 mongoDBFunctions.addFriend("john_doe", "jane_smith");
@@ -71,7 +78,7 @@ Document userDetails = mongoDBFunctions.getUserDetails("john_doe");
 ## Notes
 - Ensure the MongoDB connection string is correctly set in the `.env` file under the key `MONGO_URI`.
 - Handle exceptions gracefully when calling these functions in your application logic.
-- Refer to the `testDatabaseFunctions()` method in `MongoClientConnectionExample.java` for a demonstration of all operations.
+- Refer to the `testDatabaseFunctions()` method in `mongoDBFunctions.java` for a demonstration of all operations.
 
 ## Contact
 For any issues or questions, please contact the project maintainer.

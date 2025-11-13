@@ -53,7 +53,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>MongoClientConnectionExample</mainClass>
+                    <mainClass>mongoDBFunctions</mainClass>
                 </configuration>
             </plugin>
         </plugins>

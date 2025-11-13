@@ -9,12 +9,13 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
 import io.github.cdimascio.dotenv.Dotenv;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MongoClientConnectionExample {
+public class mongoDBFunctions {
     private static MongoDatabase database;
     
     public static void main(String[] args) {
@@ -300,6 +301,36 @@ public class MongoClientConnectionExample {
         }
     }
     
+    // 7. Accept a friend request (set requestStatus = 1)
+    
+    /**
+     * Accept a friend request by updating requestStatus to 1
+     */
+    public static boolean acceptRequest(String sender, String receiver) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Users.Requests");
+            
+            Document filter = new Document("sender", sender)
+                    .append("receiver", receiver)
+                    .append("requestStatus", 0);
+            
+            Document update = new Document("$set", new Document("requestStatus", 1));
+            
+            long modifiedCount = collection.updateOne(filter, update).getModifiedCount();
+            
+            if (modifiedCount > 0) {
+                System.out.println("Request accepted successfully: " + sender + " -> " + receiver);
+                return true;
+            } else {
+                System.out.println("No pending request found between: " + sender + " and " + receiver);
+                return false;
+            }
+        } catch (MongoException e) {
+            System.err.println("Error accepting request: " + e.getMessage());
+            return false;
+        }
+    }
+    
     /**
      * Test function to demonstrate all database operations
      */
@@ -312,7 +343,10 @@ public class MongoClientConnectionExample {
         
         // Test adding requests
         addRequest("john_doe", "jane_smith", 0);
-        addRequest("jane_smith", "john_doe", 1);
+        addRequest("jane_smith", "john_doe", 0);
+        
+        // Test accepting a request
+        acceptRequest("jane_smith", "john_doe");
         
         // Test adding friends
         addFriend("john_doe", "jane_smith");
