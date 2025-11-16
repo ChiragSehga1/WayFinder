@@ -1,3 +1,4 @@
+package mongoDBFunctions;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoException;
@@ -248,7 +249,26 @@ public class mongoDBFunctions {
             return false;
         }
     }
-    
+
+    // 5.1 Check if password matches a username's pass and only return true or false
+    public static boolean verifyUsername(String username) {
+        try {
+            MongoCollection<Document> collection = database.getCollection("Users.UserDatabase");
+
+            Document filter = new Document("username", username);
+
+            Document user = collection.find(filter).first();
+
+            boolean isValid = (user != null);
+            System.out.println("Username" + username + " xistence : " + isValid);
+            return isValid;
+        } catch (MongoException e) {
+            System.err.println("Error verifying username: " + e.getMessage());
+            return false;
+        }
+    }
+
+
     // 6. Return name, contact given username
     public static Document getUserDetails(String username) {
         try {
@@ -431,6 +451,9 @@ public class mongoDBFunctions {
 
         // Test getting friends
         getAllFriends("jasjyotg");
+
+        // Test username verification
+        verifyUsername("nonono");
 
         // Test password verification
         verifyPassword("admin", "1234");

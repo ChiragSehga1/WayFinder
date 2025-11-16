@@ -34,7 +34,7 @@ public class connection {
         }
     }
 
-    public static void delete_Account(String username) {
+    public static void delete_account(String username) {
         mongoDBFunctions.removeUser(username);
     }
 
@@ -46,10 +46,10 @@ public class connection {
         mongoDBFunctions.removeRequest(sender, receiver);
     }
 
-    public static boolean addFriend(String userName1, String userName2){
-        if (mongoDBFunctions.getAllFriends(userName1).size() < 5
-                && mongoDBFunctions.getAllFriends(userName2).size()<5) {
-            mongoDBFunctions.addFriend(userName1, userName2);
+    public static boolean addFriend(String username1, String username2){
+        if (mongoDBFunctions.getAllFriends(username1).size() < 5
+                && mongoDBFunctions.getAllFriends(username2).size()<5) {
+            mongoDBFunctions.addFriend(username1, username2);
             return true;
         }
         else {
@@ -57,29 +57,28 @@ public class connection {
         }
     }
 
-    public static void removeFriend(String userName1, String userName2){
-        mongoDBFunctions.removeFriend(userName1, userName2);
+    public static void removeFriend(String username1, String username2){
+        mongoDBFunctions.removeFriend(username1, username2);
     }
 
-    public static List<String> getPendingRequests(String userName){
-        return mongoDBFunctions.getPendingRequests(userName);
+    public static List<String> getPendingRequests(String username){
+        return mongoDBFunctions.getPendingRequests(username);
     }
 
-    public  static List<String> getFriends(String userName){
-        return mongoDBFunctions.getAllFriends(userName);
+    public  static List<String> getFriends(String username){
+        return mongoDBFunctions.getAllFriends(username);
     }
 
-    public static String getLocation(String userName){
-        return mongoDBFunctions.getLocation(userName);
+    public static String getLocation(String username){
+        return mongoDBFunctions.getLocation(username);
     }
 
-    public static boolean updatelocation(String username, String location) {
+    public static void updatelocation(String username, String location) {
         mongoDBFunctions.updateLocation(username, location);
-        return true;
     }
 
-    public static Document getUserDetails(String userName){
-        return mongoDBFunctions.getUserDetails(userName);
+    public static Document getUserDetails(String username){
+        return mongoDBFunctions.getUserDetails(username);
     }
 
 }
