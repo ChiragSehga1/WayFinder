@@ -1,21 +1,29 @@
 package application.service;
+import application.mongoDB.mongoDBFunctions.mongoDBFunctions;
 import jakarta.annotation.PostConstruct;
-import mongoDBFunctions.mongoDBFunctions;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class connection {
     @Value("${MONGO_URI}")
     String uri;
 
-    @PostConstruct
-    public void check() {
-        System.out.println("Loaded URI = " + uri);
+    private final mongoDBFunctions mongoDBFunctions;
+
+    public connection(mongoDBFunctions mongoDBFunctions) {
+        this.mongoDBFunctions = mongoDBFunctions;
     }
 
-    public static boolean login(String username, String password) {
+    @PostConstruct
+    public void check() {
+        System.out.println("Connection service initialized!");
+    }
+
+    public boolean login(String username, String password) {
          if (mongoDBFunctions.verifyUsername(username)) {
              return mongoDBFunctions.verifyPassword(username, password);
         }
@@ -24,7 +32,7 @@ public class connection {
         }
     }
 
-    public static boolean sign_up(String username, String name, String contact, String lastLocation, String password) {
+    public boolean sign_up(String username, String name, String contact, String lastLocation, String password) {
         if (!mongoDBFunctions.verifyUsername(username)) {
             mongoDBFunctions.addUser(username, name, contact, lastLocation, password);
             return true;
@@ -34,19 +42,19 @@ public class connection {
         }
     }
 
-    public static void delete_account(String username) {
+    public void delete_account(String username) {
         mongoDBFunctions.removeUser(username);
     }
 
-    public static void addRequest(String sender, String receiver){
+    public void addRequest(String sender, String receiver){
         mongoDBFunctions.addRequest(sender, receiver, 0);
     }
 
-    public static void removeRequest(String sender, String receiver){
+    public void removeRequest(String sender, String receiver){
         mongoDBFunctions.removeRequest(sender, receiver);
     }
 
-    public static boolean addFriend(String username1, String username2){
+    public boolean addFriend(String username1, String username2){
         if (mongoDBFunctions.getAllFriends(username1).size() < 5
                 && mongoDBFunctions.getAllFriends(username2).size()<5) {
             mongoDBFunctions.addFriend(username1, username2);
@@ -57,27 +65,27 @@ public class connection {
         }
     }
 
-    public static void removeFriend(String username1, String username2){
+    public void removeFriend(String username1, String username2){
         mongoDBFunctions.removeFriend(username1, username2);
     }
 
-    public static List<String> getPendingRequests(String username){
+    public List<String> getPendingRequests(String username){
         return mongoDBFunctions.getPendingRequests(username);
     }
 
-    public  static List<String> getFriends(String username){
+    public  List<String> getFriends(String username){
         return mongoDBFunctions.getAllFriends(username);
     }
 
-    public static String getLocation(String username){
+    public String getLocation(String username){
         return mongoDBFunctions.getLocation(username);
     }
 
-    public static void updatelocation(String username, String location) {
+    public void updatelocation(String username, String location) {
         mongoDBFunctions.updateLocation(username, location);
     }
 
-    public static Document getUserDetails(String username){
+    public Document getUserDetails(String username){
         return mongoDBFunctions.getUserDetails(username);
     }
 
