@@ -1,5 +1,8 @@
 package com.example.locationtracker.views;
 
+import application.BackendApplication;
+import application.service.connection;
+import com.example.locationtracker.backendClient.backendClient;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.PasswordField;
@@ -30,6 +33,7 @@ import org.json.JSONObject;
 @Route("")
 @PageTitle("Login | Location Tracker")
 public class LoginView extends VerticalLayout {
+    private backendClient backend = new backendClient();
 
     public LoginView() {
         setSizeFull();
@@ -89,9 +93,11 @@ public class LoginView extends VerticalLayout {
                 String response = "{ \"status\": \"success\", \"name\": \"admin\" }";
                 JSONObject jsonResponse = new JSONObject(response);
                 return "success".equals(jsonResponse.optString("status"));
-            } else {
+            }
+            else {
                 // Simulate failed response
-                String response = "{ \"status\": \"failure\" }";
+                String reply = backend.login(name, password);
+                String response = "{ \"status\": \""+ reply +"\" }";
                 JSONObject jsonResponse = new JSONObject(response);
                 return "success".equals(jsonResponse.optString("status"));
             }

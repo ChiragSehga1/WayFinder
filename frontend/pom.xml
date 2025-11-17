@@ -8,7 +8,7 @@
         <version>3.5.7</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
+    <groupId>com.wayfinder</groupId>
     <artifactId>locationtracker</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>LocationTracker</name>
@@ -55,6 +55,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.wayfiner</groupId>
+            <artifactId>backend</artifactId>
+            <version>0.0F.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.wayfiner</groupId>
+            <artifactId>backend</artifactId>
+            <version>0.0F.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
     <dependencyManagement>
