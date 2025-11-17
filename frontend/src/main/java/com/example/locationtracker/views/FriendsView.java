@@ -78,14 +78,12 @@ public class FriendsView extends VerticalLayout {
 
                 Button accept = new Button("Accept", e -> {
                     backend.addFriend(sender, username);
-                    pendingList.remove(reqText);
                     pendingList.add(new Paragraph("Accepted " + sender));
                     UI.getCurrent().getPage().reload();
                 });
 
                 Button reject = new Button("Reject", e -> {
                     backend.removeRequest(sender, username);
-                    pendingList.remove(reqText);
                     pendingList.add(new Paragraph("Rejected " + sender));
                     UI.getCurrent().getPage().reload();
 
@@ -119,7 +117,6 @@ public class FriendsView extends VerticalLayout {
 
                 Button remove = new Button("Remove", e -> {
                     backend.removeFriend(username, friend);
-                    friendsList.remove(fText);
                     friendsList.add(new Paragraph("Removed " + friend));
                     UI.getCurrent().getPage().reload();
 

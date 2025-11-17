@@ -47,7 +47,10 @@ public class connection {
     }
 
     public void addRequest(String sender, String receiver){
-        mongoDBFunctions.addRequest(sender, receiver, 0);
+        List<String> friends = mongoDBFunctions.getAllFriends(sender);
+        if(!receiver.equals(sender) && !friends.contains(receiver)){
+            mongoDBFunctions.addRequest(sender, receiver, 0);
+        }
     }
 
     public void removeRequest(String sender, String receiver){
