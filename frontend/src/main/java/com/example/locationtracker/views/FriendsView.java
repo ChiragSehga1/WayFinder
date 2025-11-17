@@ -15,7 +15,7 @@ import com.vaadin.flow.server.VaadinSession;
 import java.util.List;
 
 @Route("friends")
-@PageTitle("Friends | Location Tracker")
+@PageTitle("Friends | WayFinder")
 public class FriendsView extends VerticalLayout {
 
     private backendClient backend = new backendClient();

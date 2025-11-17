@@ -31,7 +31,7 @@ import com.vaadin.flow.component.html.H1;
 import org.json.JSONObject;
 
 @Route("")
-@PageTitle("Login | Location Tracker")
+@PageTitle("Login | WayFinder")
 public class LoginView extends VerticalLayout {
     private backendClient backend = new backendClient();
 

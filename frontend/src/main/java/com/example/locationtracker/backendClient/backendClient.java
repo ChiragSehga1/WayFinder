@@ -78,6 +78,8 @@ public class backendClient {
 
     public String updateLocation(String username, String location) {
         LocationRequest req = new LocationRequest(username, location);
+        System.out.println("SAVE location for " + username + " -> " + location);
+
         return rest.postForObject(baseUrl + "/updateLocation", req, String.class);
     }
 
