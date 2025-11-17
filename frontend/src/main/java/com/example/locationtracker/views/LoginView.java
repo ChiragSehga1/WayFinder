@@ -68,25 +68,6 @@ public class LoginView extends VerticalLayout {
 
     private boolean authenticateUser(String name, String password) {
         try {
-            /*URL url = new URL("http://localhost:8080/api/auth");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json; utf-8");
-            conn.setRequestProperty("Accept", "application/json");
-            conn.setDoOutput(true);
-
-            String jsonInputString = String.format("{\"name\": \"%s\", \"password\": \"%s\"}", name, password);
-            try (OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
-                os.write(input, 0, input.length);
-            }
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8));
-            StringBuilder response = new StringBuilder();
-            String responseLine;
-            while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
-            } */
             // Dummy authentication logic for now
             if ("admin".equals(name) && "1234".equals(password)) {
                 // Simulated backend response

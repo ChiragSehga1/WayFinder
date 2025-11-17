@@ -4,8 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="28fae3cd-84dd-4fff-84da-9716353e0b66" name="Changes" comment="frontend stuff">
+    <list default="true" id="28fae3cd-84dd-4fff-84da-9716353e0b66" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/service/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/service/connection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendPair.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/LocationRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/LocationRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/SignupRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/SignupRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/UsernameRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/UsernameRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/userController/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/backendClient/backendClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/backendClient/backendClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/HomeView.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/HomeView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/LoginView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/ProfileView.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/ProfileView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,20 +44,10 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/ChiragSehga1/WayFinder&quot;,
-    &quot;accountId&quot;: &quot;039106b9-c5ef-41be-aa76-8cd602df5847&quot;
+    &quot;url&quot;: &quot;https://github.com/ChiragSehga1/WayFinder.git&quot;,
+    &quot;accountId&quot;: &quot;07cffb3c-02f4-4cb6-9817-69099f72855b&quot;
   }
 }</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -52,90 +56,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.mongoDBFunctions.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.BackendApplication (1).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.BackendApplication (2).executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.BackendApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.LocationTrackerApplication.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Chirag/IIITD/CurrentSem/CN/project/WayFinder/mongoDB&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.BackendApplication.executor": "Run",
+    "Spring Boot.LocationTrackerApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Chirag/IIITD/CurrentSem/CN/project/WayFinder/mongoDB",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Akshat(local)\Desktop\coding\cn\project\WayFinder\backend\src\main\resources" />
-      <recent name="C:\Users\Akshat(local)\Desktop\coding\cn\project\WayFinder\backend\src\main\java\application" />
-      <recent name="C:\Users\Akshat(local)\Desktop\coding\cn\project\WayFinder\backend\src\main\java\application\controller" />
-      <recent name="C:\Users\Akshat(local)\Desktop\coding\cn\project\WayFinder" />
-      <recent name="C:\Users\Akshat(local)\Desktop\coding\cn\project\WayFinder\backend" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="KtorApplicationConfigurationType" />
-        <option value="MicronautRunConfigurationType" />
-        <option value="QuarkusRunConfigurationType" />
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-    <option name="configurationStatuses">
-      <map>
-        <entry key="SpringBootApplicationConfigurationType">
-          <value>
-            <map>
-              <entry key="BackendApplication" value="STOPPED" />
-              <entry key="LocationTrackerApplication" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.BackendApplication">
+}]]></component>
+  <component name="RunManager" selected="Spring Boot.LocationTrackerApplication">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="WayFinder" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="wayfinder" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BackendApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="application.BackendApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="application.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -147,17 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Spring Boot.BackendApplication" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
       </set>
     </attachedChunks>
   </component>
@@ -171,87 +126,10 @@
       <updated>1763060207205</updated>
       <workItem from="1763060210413" duration="37000" />
       <workItem from="1763060827469" duration="56000" />
-      <workItem from="1763215882657" duration="5479000" />
-      <workItem from="1763221402820" duration="20720000" />
-      <workItem from="1763382055450" duration="10822000" />
     </task>
-    <task id="LOCAL-00001" summary="backend stuff">
-      <option name="closed" value="true" />
-      <created>1763243263839</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1763243263839</updated>
-    </task>
-    <task id="LOCAL-00002" summary="backend stuff">
-      <option name="closed" value="true" />
-      <created>1763317749041</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1763317749041</updated>
-    </task>
-    <task id="LOCAL-00003" summary="backend stuff">
-      <option name="closed" value="true" />
-      <created>1763391749262</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1763391749262</updated>
-    </task>
-    <task id="LOCAL-00004" summary="frontend stuff">
-      <option name="closed" value="true" />
-      <created>1763392117819</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1763392117819</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
-    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
-    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
-    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-websocket" />
-    <option featureType="dependencySupport" implementationName="java:com.vaadin:vaadin-core" />
-    <option featureType="dependencySupport" implementationName="java:com.vaadin:flow-server" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="backend stuff" />
-    <MESSAGE value="frontend stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="frontend stuff" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/application/mongoDB/mongoDBFunctions/mongoDBFunctions.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/application/mongoDB/mongoDBFunctions/mongoDBFunctions.java</url>
-          <line>279</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/application/mongoDB/mongoDBFunctions/mongoDBFunctions.java</url>
-          <line>304</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

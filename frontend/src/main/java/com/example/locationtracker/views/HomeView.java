@@ -22,11 +22,18 @@ public class HomeView extends VerticalLayout {
         setJustifyContentMode(JustifyContentMode.CENTER);
 
         // ======== TOP BAR ========
+        Button addFriendsButton = new Button("Add Friends", e ->
+                UI.getCurrent().navigate("friends")
+        );
+
         H1 heading = new H1("Home Page");
         heading.getStyle().set("margin", "0").set("font-size", "24px");
 
-        Button profileButton = new Button("Profile", e -> UI.getCurrent().navigate("profile"));
-        HorizontalLayout topBar = new HorizontalLayout(heading, profileButton);
+        Button profileButton = new Button("Profile", e ->
+                UI.getCurrent().navigate("profile")
+        );
+
+        HorizontalLayout topBar = new HorizontalLayout(addFriendsButton, heading, profileButton);
         topBar.setWidthFull();
         topBar.setJustifyContentMode(JustifyContentMode.BETWEEN);
         topBar.setAlignItems(Alignment.CENTER);
@@ -48,7 +55,10 @@ public class HomeView extends VerticalLayout {
                 .set("margin", "40px auto");
 
         // ======== BOTTOM BUTTON ========
-        Button sendLocation = new Button("Send Location", e -> Notification.show("Location sent! (simulated)"));
+        Button sendLocation = new Button("Send Location",
+                e -> Notification.show("Location sent! (simulated)")
+        );
+
         sendLocation.getStyle()
                 .set("background-color", "#007bff")
                 .set("color", "white")
@@ -60,7 +70,7 @@ public class HomeView extends VerticalLayout {
         add(topBar, mapContainer, sendLocation);
         setHorizontalComponentAlignment(Alignment.CENTER, mapContainer, sendLocation);
 
-        // ======== INITIALIZE LEAFLET MAP WITH MULTIPLE MARKERS ========
+        // ======== LEAFLET MAP ========
         UI.getCurrent().getPage().addStyleSheet("https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
         UI.getCurrent().getPage().addJavaScript("https://unpkg.com/leaflet@1.9.4/dist/leaflet.js");
 
@@ -72,7 +82,6 @@ public class HomeView extends VerticalLayout {
                 attribution: '© OpenStreetMap'
             }).addTo(map);
 
-            // Add multiple markers
             const markers = [
                 {lat: 28.5494, lon: 77.2010, label: "Hauz Khas"},
                 {lat: 28.5355, lon: 77.2430, label: "Greater Kailash"},

@@ -55,8 +55,8 @@ public class connection {
     }
 
     public boolean addFriend(String username1, String username2){
-        if (mongoDBFunctions.getAllFriends(username1).size() < 5
-                && mongoDBFunctions.getAllFriends(username2).size()<5) {
+        if (mongoDBFunctions.getAllFriends(username1).size() < 10
+                && mongoDBFunctions.getAllFriends(username2).size()< 10) {
             mongoDBFunctions.addFriend(username1, username2);
             return true;
         }

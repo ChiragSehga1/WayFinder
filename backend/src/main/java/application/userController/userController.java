@@ -4,6 +4,7 @@ import application.mongoDB.mongoDBFunctions.mongoDBFunctions;
 import application.userController.dto.*;
 import application.service.connection; // your functions
 import com.mongodb.client.MongoClient;
+import org.bson.Document;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -76,8 +77,7 @@ public class userController {
 
     @PostMapping("/getLocation")
     public String getLocation(@RequestBody LocationRequest req) {
-        connection.getLocation(req.username);
-        return "success";
+        return connection.getLocation(req.username);
     }
 
 
@@ -88,8 +88,7 @@ public class userController {
     }
 
     @PostMapping("/getUserDetails")
-    public String getUserDetails(@RequestBody UsernameRequest req) {
-        connection.getUserDetails(req.username);
-        return "success";
+    public Document getUserDetails(@RequestBody UsernameRequest req) {
+        return connection.getUserDetails(req.username);
     }
 }

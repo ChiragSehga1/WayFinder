@@ -68,6 +68,10 @@
             <version>0.0F.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>bson</artifactId>
+        </dependency>
     </dependencies>
     <dependencyManagement>
         <dependencies>
