@@ -80,12 +80,15 @@ public class FriendsView extends VerticalLayout {
                     backend.addFriend(sender, username);
                     pendingList.remove(reqText);
                     pendingList.add(new Paragraph("Accepted " + sender));
+                    UI.getCurrent().getPage().reload();
                 });
 
                 Button reject = new Button("Reject", e -> {
                     backend.removeRequest(sender, username);
                     pendingList.remove(reqText);
                     pendingList.add(new Paragraph("Rejected " + sender));
+                    UI.getCurrent().getPage().reload();
+
                 });
 
                 HorizontalLayout row = new HorizontalLayout(reqText, accept, reject);
@@ -118,6 +121,8 @@ public class FriendsView extends VerticalLayout {
                     backend.removeFriend(username, friend);
                     friendsList.remove(fText);
                     friendsList.add(new Paragraph("Removed " + friend));
+                    UI.getCurrent().getPage().reload();
+
                 });
 
                 HorizontalLayout row = new HorizontalLayout(fText, remove);
