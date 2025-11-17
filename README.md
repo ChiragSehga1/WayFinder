@@ -2,7 +2,7 @@
 
 ## Overview
 WayFinder is a Computer Networks course project that integrates MongoDB with Java to manage user data, requests, and friendships. This document provides guidance for developers writing logic to call the database functions implemented in `mongoDBFunctions.java`.
-
+ 
 ## Database Collections
 The project uses the following MongoDB collections:
 
