@@ -7,6 +7,6 @@
     <groupId>com</groupId>
     <artifactId>wayfinder</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Mortgage Calculator</name>
+    <name>Main</name>
 
 </project>
