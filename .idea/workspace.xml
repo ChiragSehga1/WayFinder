@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28fae3cd-84dd-4fff-84da-9716353e0b66" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/application/service/connection.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/application/service/connection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/FriendsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/FriendsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <updated>1763060207205</updated>
       <workItem from="1763060210413" duration="37000" />
       <workItem from="1763060827469" duration="56000" />
-      <workItem from="1763403287554" duration="413000" />
+      <workItem from="1763403287554" duration="1105000" />
     </task>
     <servers />
   </component>
