@@ -5,109 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="28fae3cd-84dd-4fff-84da-9716353e0b66" name="Changes" comment="frontend stuff">
-      <change afterPath="$PROJECT_DIR$/.idea/.copilot-plugin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/mongoDB/lib/bson-4.11.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/mongoDB/lib/dotenv-java-3.0.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/mongoDB/lib/mongodb-driver-core-4.11.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/mongoDB/lib/mongodb-driver-sync-4.11.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/mongoDB/mongoDBFunctions/mongoDBFunctions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendPair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/FriendRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/LocationRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/LoginRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/SignupRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/dto/UsernameRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/application/userController/userController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/flow/generated-flow-imports.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/flow/generated-flow-imports.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/flow/generated-flow-webcomponent-imports.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/Flow.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/Flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/Flow.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/FlowBootstrap.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/FlowBootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/FlowClient.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/FlowClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/ReactRouterOutletElement.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/comboBoxConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/contextMenuConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/contextMenuTargetConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot-version.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/base-panel-Bh_ywZZN.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-DBVJxR1R.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-features-plugin-K7M1Cmzo.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-feedback-plugin-CLX4rvhC.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-global-vars-later-RUSaU8uR.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-info-plugin-D4P0f4lZ.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-init-step2-Bu4STf1r.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-log-plugin-CFumKaig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/copilot-shortcuts-plugin-DmjtCgG-.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/figma-public/figma-api.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/icons-iLxqH3Sc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/index-CjujSS76.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/overlay-monkeypatch-HZaVJ-wi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/query-BykXNUlT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/shared/copilot-plugin-support.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/shared/flow-utils.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/copilot/state-DecwIYub.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/datepickerConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/disableOnClickFunctions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/dndConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/flow-component-directive.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/flow-component-renderer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/gridConnector.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/index.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/index.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/lit-renderer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/menubarConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/messageListConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/selectConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/theme-util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/tooltip.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-big-decimal-field.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/License.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/connection.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/live-reload-connection.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/pre-trial-splash-screen.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/vaadin-dev-tools.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/vaadin-dev-tools.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-dev-tools/websocket-connection.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-grid-flow-selection-column.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-popover/popover.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-time-picker/helpers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/vaadin-time-picker/timepickerConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/jar-resources/virtualListConnector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/vaadin-featureflags.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/generated/vaadin.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/backendClient/backendClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/LoginView.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/com/example/locationtracker/views/LoginView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/vite.generated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vite.generated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/lib/bson-4.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/lib/dotenv-java-3.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/lib/mongodb-driver-core-4.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/lib/mongodb-driver-sync-4.11.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/src/main/java/mongoDBFunctions/mongoDBFunctions.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mongoDB/target/classes/mongoDBFunctions.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +173,7 @@
       <workItem from="1763060827469" duration="56000" />
       <workItem from="1763215882657" duration="5479000" />
       <workItem from="1763221402820" duration="20720000" />
-      <workItem from="1763382055450" duration="9823000" />
+      <workItem from="1763382055450" duration="10822000" />
     </task>
     <task id="LOCAL-00001" summary="backend stuff">
       <option name="closed" value="true" />
@@ -301,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763391749262</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="frontend stuff">
+      <option name="closed" value="true" />
+      <created>1763392117819</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763392117819</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
