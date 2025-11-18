@@ -44,5 +44,11 @@ WayFinder prioritizes user safety through:
 - **No public location data** - only shared with confirmed friends
 - **Secure data storage** in cloud-hosted MongoDB
 
+## Contributors
+- Akshat Patiyal (2023062)
+- Chirag Sehgal (2023176)
+- Dhruv Jaiswal (2023200)
+- Jasjyot Singh Gulati (2023267)
+- Sushen Tentiwal (2023259)
 ---
 *A Computer Networks project demonstrating modern web application architecture, real-time data synchronization, and secure user management.*
