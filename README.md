@@ -1,101 +1,48 @@
-# WayFinder
+# WayFinder 🗺️
 
 ## Overview
-WayFinder is a Computer Networks course project that integrates MongoDB with Java to manage user data, requests, and friendships. This document provides guidance for developers writing logic to call the database functions implemented in `mongoDBFunctions.java`.
- 
-## Database Collections
-The project uses the following MongoDB collections:
+WayFinder is a **safety-focused location sharing application** designed to help users stay connected with friends and family through secure, real-time location tracking. Built as a Computer Networks course project, it demonstrates modern web application architecture with emphasis on user privacy and safety.
 
-1. **Users.UserDatabase**
-   - Fields: `username`, `name`, `contact`, `lastLocation`, `password`
-2. **Users.Requests**
-   - Fields: `sender`, `receiver`, `requestStatus` (0/1)
-3. **Users.Friends**
-   - Fields: `userName1`, `userName2`
+## What is WayFinder?
+WayFinder allows users to:
+- **Share location safely** with trusted friends and family
+- **Send and manage friend requests** with a curated friend limit (max 10 friends)
+- **Track real-time locations** of connected friends for safety purposes
+- **Maintain privacy** through controlled friend networks and secure authentication
 
-## Available Functions
-The following functions are implemented in `mongoDBFunctions.java`:
+## Key Features
+- 🔒 **Secure Authentication** - Password-based user verification
+- 👥 **Friend Network Management** - Send, accept, and manage friend requests
+- 📍 **Real-time Location Sharing** - Share and view friend locations
+- 🛡️ **Privacy Controls** - Limited friend networks ensure safety
+- 🌐 **Cross-platform Access** - Web-based application accessible anywhere
 
-### 1. Add Records
-- `addUser(String username, String name, String contact, String lastLocation, String password)`
-  - Adds a user to `Users.UserDatabase`.
-- `addRequest(String sender, String receiver, int requestStatus)`
-  - Adds a friend request to `Users.Requests`.
-- `addFriend(String userName1, String userName2)`
-  - Adds a friendship to `Users.Friends`.
+## Technology Stack
+- **Frontend**: Vaadin (Java-based web UI framework)
+- **Backend**: Spring Boot REST API
+- **Database**: MongoDB Atlas (cloud-hosted)
+- **Architecture**: Three-tier system with clean separation of concerns
 
-### 2. Remove Records
-- `removeUser(String username)`
-  - Removes a user from `Users.UserDatabase`.
-- `removeRequest(String sender, String receiver)`
-  - Removes a request from `Users.Requests` (only if `requestStatus = 1`).
-- `removeFriend(String userName1, String userName2)`
-  - Removes a friendship from `Users.Friends` (both directions).
-
-### 3. Query Functions
-- `getPendingRequests(String receiver)`
-  - Returns a list of senders who have sent pending friend requests to the receiver.
-- `getAllFriends(String userName1)`
-  - Returns all friends for a specific user.
-- `verifyPassword(String username, String password)`
-  - Verifies if the password matches the username.
-- `getUserDetails(String username)`
-  - Returns the `name` and `contact` for a specific username.
-- `getLocation(String username)`
-  - Returns the `lastLocation` for a specific username.
-
-### 4. Update Functions
-- `acceptRequest(String sender, String receiver)`
-  - Accepts a friend request by updating `requestStatus` from 0 to 1.
-- `updateLocation(String username, String newLocation)`
-  - Updates the `lastLocation` for a specific username.
-
-### 5. Display Functions
-- `displayAllDatabases()`
-  - Displays all records from all three collections (UserDatabase, Requests, Friends).
-
-## Usage Example
-Here is an example of how to use the functions:
-
-```java
-// Add a user
-mongoDBFunctions.addUser("john_doe", "John Doe", "123-456-7890", "New York", "password123");
-
-// Add a friend request
-mongoDBFunctions.addRequest("john_doe", "jane_smith", 0);
-
-// Accept a friend request
-mongoDBFunctions.acceptRequest("john_doe", "jane_smith");
-
-// Add a friendship
-mongoDBFunctions.addFriend("john_doe", "jane_smith");
-
-// Get pending request senders for a receiver
-List<String> pendingRequestSenders = mongoDBFunctions.getPendingRequests("jane_smith");
-
-// Get all friends for a user
-List<String> friends = mongoDBFunctions.getAllFriends("john_doe");
-
-// Verify a user's password
-boolean isValid = mongoDBFunctions.verifyPassword("john_doe", "password123");
-
-// Get user details
-Document userDetails = mongoDBFunctions.getUserDetails("john_doe");
-
-// Get user location
-String userLocation = mongoDBFunctions.getLocation("john_doe");
-
-// Update user location
-boolean locationUpdated = mongoDBFunctions.updateLocation("john_doe", "40.7128,-74.0060");
-
-// Display all database records
-mongoDBFunctions.displayAllDatabases();
+## Project Structure
+```
+WayFinder/
+├── frontend/          # Vaadin web interface
+├── backend/           # Spring Boot REST API
+├── mongoDB/           # Database utilities and testing
+└── README.md          # This file
 ```
 
-## Notes
-- Ensure the MongoDB connection string is correctly set in the `.env` file under the key `MONGO_URI`.
-- Handle exceptions gracefully when calling these functions in your application logic.
-- Refer to the `testDatabaseFunctions()` method in `mongoDBFunctions.java` for a demonstration of all operations.
+## Getting Started
+1. **Backend**: `cd backend && mvn spring-boot:run` (runs on port 8067)
+2. **Frontend**: `cd frontend && mvn spring-boot:run` (Vaadin dev mode)
+3. **Environment**: Ensure `.env` files are configured with MongoDB connection strings
 
-## Contact
-For any issues or questions, please contact the project maintainer.
+## Safety & Privacy
+WayFinder prioritizes user safety through:
+- **Limited friend networks** (maximum 10 friends per user)
+- **Explicit consent** required for location sharing
+- **No public location data** - only shared with confirmed friends
+- **Secure data storage** in cloud-hosted MongoDB
+
+---
+*A Computer Networks project demonstrating modern web application architecture, real-time data synchronization, and secure user management.*

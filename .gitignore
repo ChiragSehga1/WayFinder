@@ -1,1 +1,5 @@
 mongoDB/.env
+backend/.env
+.github
+.idea
+target/*

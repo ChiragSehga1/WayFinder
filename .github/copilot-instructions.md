@@ -1,62 +1,74 @@
 # WayFinder - AI Coding Assistant Instructions
 
 ## Project Overview
-WayFinder is a Computer Networks course project with a multi-tier architecture featuring Java backend with MongoDB integration and separate frontend/backend components.
+WayFinder is a Computer Networks course project implementing a social location tracker with Spring Boot backend, Vaadin frontend, and MongoDB Atlas integration.
 
 ## Architecture & Structure
-- **Hybrid Build System**: Uses both Maven (`pom.xml`) and manual compilation with JAR dependencies (`lib/`)
-- **Multi-component**: Frontend, backend, and main Java application are separate but related components
-- **Database**: MongoDB Atlas cloud database with connection string in `.env` (excluded from git)
-- **Java Version**: Targets Java 11 with Maven compiler plugin
+- **Three-Tier System**: Standalone MongoDB module (`mongoDB/`), Spring Boot REST API backend (`backend/`), Vaadin frontend (`frontend/`)
+- **Database**: MongoDB Atlas with three collections: `Users.UserDatabase`, `Users.Requests`, `Users.Friends`
+- **Communication**: Frontend communicates with backend via REST API on port 8067, backend uses MongoDB service layer
+- **Java Versions**: Backend (Java 17), Frontend (Java 21+), Legacy MongoDB module (package-less classes)
 
 ## Key Development Patterns
 
 ### Environment Configuration
-- MongoDB connection string stored in `.env` file using `dotenv-java` library
-- Pattern: `Dotenv.load()` then `dotenv.get("MONGO_URI")` for secure credential access
-- Always validate environment variables with null/empty checks before use
+- MongoDB URI stored in `.env` files (both `mongoDB/.env` and `backend/.env`)
+- Spring Boot uses `spring.config.import=optional:dotenv` to load environment variables
+- Backend connection: `spring.data.mongodb.uri=${MONGO_URI}` in `application.properties`
 
-### Build & Run Workflows
-Two execution methods available:
-1. **Maven**: `mvn exec:java` (uses exec-maven-plugin with mainClass: mongoDBFunctions)
-2. **Manual**: Use provided scripts
-   - Windows: `run.bat` or `run.ps1` 
-   - Compiles with: `javac -cp "lib\*" src\main\java\*.java -d .`
-   - Runs with: `java -cp ".;lib\*" mongoDBFunctions`
+### Service Layer Architecture
+**Backend (`backend/`):**
+- `mongoDBFunctions` - Database operations component (injected via Spring)
+- `connection` - Service layer with business logic (friend limits, validation)
+- `userController` - REST endpoints using DTO pattern
+- Pattern: Controller → Service → MongoDB Component
 
-### MongoDB Integration
-- Uses MongoDB Java Driver 4.11.1 with ServerAPI V1
-- Pattern: Create `MongoClientSettings` with `ConnectionString` and `ServerApi`
-- Always use try-with-resources for `MongoClient` connections
-- Database operations wrapped in try-catch for `MongoException`
-- Test connectivity with `database.runCommand(new Document("ping", 1))`
+**Frontend (`frontend/`):**
+- Vaadin views with `@Route` annotations (`LoginView`, `HomeView`, `FriendsView`, `ProfileView`)
+- `backendClient` - HTTP client to communicate with backend REST API
+- Session management via `VaadinSession.getAttribute("username")`
+
+### Database Schema & Operations
+**Collections:**
+- `Users.UserDatabase` - User profiles (username, name, contact, lastLocation, password)
+- `Users.Requests` - Friend requests (sender, receiver, requestStatus 0/1)
+- `Users.Friends` - Bidirectional friendships (userName1, userName2)
+
+**Business Rules:**
+- Friend limit: 10 friends per user
+- Bidirectional friendship records (both directions stored)
+- Request acceptance automatically creates friendship records
+
+## Critical Development Workflows
+
+### Running the Application
+1. **Backend**: `cd backend && mvn spring-boot:run` (port 8067)
+2. **Frontend**: `cd frontend && mvn spring-boot:run` (Vaadin dev mode)
+3. **Legacy MongoDB testing**: Direct execution of `mongoDBFunctions.java`
+
+### Adding New Features
+- **New API endpoints**: Add to `userController` with corresponding DTO
+- **Frontend views**: Create Vaadin view with `@Route`, inject `backendClient`
+- **Database operations**: Add to `mongoDBFunctions`, expose via `connection` service
 
 ## Project-Specific Conventions
-- Main class directly in default package (no package declaration)
-- JAR dependencies manually managed in `lib/` directory alongside Maven
-- Hardcoded paths in run scripts point to specific development machine
-- `.env` file ignored by git but required for local development
-- Compiled `.class` files committed to repository (unusual but intentional)
+- **DTO Pattern**: Public fields, constructor-based (no getters/setters)
+- **Error Handling**: Simple string responses ("success"/"fail") for API calls
+- **Authentication**: Basic username/password verification, no JWT/sessions
+- **Location Storage**: String format coordinate pairs (e.g., "28.6139,77.2090")
+
+## Integration Points
+- **Frontend ↔ Backend**: REST calls via `backendClient` using Spring `RestTemplate`
+- **Backend ↔ Database**: Spring Data MongoDB with custom service layer
+- **Configuration**: Environment variables via dotenv, Spring profiles for development/production
 
 ## Critical Dependencies
 ```xml
-mongodb-driver-sync:4.11.1  // Core MongoDB connectivity
-dotenv-java:3.0.0          // Environment variable management
+<!-- Backend -->
+spring-boot-starter-data-mongodb  // MongoDB integration
+spring-dotenv:3.0.0              // Environment management
+
+<!-- Frontend -->
+vaadin-spring-boot-starter:24.9.5 // Vaadin framework
+backend dependency               // Access to DTOs and types
 ```
-
-## Development Setup Requirements
-1. Java 11+ installed and configured
-2. Maven for dependency management (optional - JARs provided)
-3. `.env` file with valid `MONGO_URI` connection string
-4. MongoDB Atlas cluster accessible from development environment
-
-## File Patterns
-- Configuration: `pom.xml` (Maven), `.env` (secrets), `lib/` (manual JARs)
-- Source: `src/main/java/` (standard Maven structure)
-- Scripts: `run.bat`/`run.ps1` (platform-specific execution)
-- Documentation: Minimal READMEs in each component directory
-
-## Integration Points
-- **Database**: MongoDB Atlas via connection string authentication
-- **Frontend/Backend**: Separate components (implementation details in respective directories)
-- **Environment**: Dotenv pattern for configuration management
