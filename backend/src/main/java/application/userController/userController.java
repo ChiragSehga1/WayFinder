@@ -43,8 +43,10 @@ public class userController {
 
     @PostMapping("/addRequest")
     public String addRequest(@RequestBody FriendRequest req) {
-        connection.addRequest(req.sender, req.receiver);
-        return "success";
+        if(connection.addRequest(req.sender, req.receiver)){
+        return "success";}
+        else{
+            return "fail";}
     }
 
     @PostMapping("/removeRequest")

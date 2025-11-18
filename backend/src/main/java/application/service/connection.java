@@ -46,11 +46,15 @@ public class connection {
         mongoDBFunctions.removeUser(username);
     }
 
-    public void addRequest(String sender, String receiver){
+    public boolean addRequest(String sender, String receiver){
         List<String> friends = mongoDBFunctions.getAllFriends(sender);
-        if(!receiver.equals(sender) && !friends.contains(receiver)){
-            mongoDBFunctions.addRequest(sender, receiver, 0);
+        if(!receiver.equals(sender) && !friends.contains(receiver) && mongoDBFunctions.verifyUsername(receiver)) {
+            if (!getPendingRequests(receiver).contains(sender)){
+                mongoDBFunctions.addRequest(sender, receiver, 0);
+                return true;
+            }
         }
+        return false;
     }
 
     public void removeRequest(String sender, String receiver){

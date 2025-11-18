@@ -63,12 +63,6 @@
             <scope>compile</scope>
         </dependency>
         <dependency>
-            <groupId>com.wayfiner</groupId>
-            <artifactId>backend</artifactId>
-            <version>0.0F.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>bson</artifactId>
         </dependency>

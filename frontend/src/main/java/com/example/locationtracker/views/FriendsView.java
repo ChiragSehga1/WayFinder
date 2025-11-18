@@ -39,20 +39,21 @@ public class FriendsView extends VerticalLayout {
 
         TextField searchUser = new TextField("Enter username");
         Button sendRequestBtn = new Button("Send Request", e -> {
-            String receiver = searchUser.getValue().trim();
+        String receiver = searchUser.getValue().trim();
 
-            if (receiver.isEmpty()) {
-                searchUser.setErrorMessage("Username cannot be empty");
-                searchUser.setInvalid(true);
-                return;
-            }
+        if (receiver.isEmpty()) {
+            searchUser.setErrorMessage("Username cannot be empty");
+            searchUser.setInvalid(true);
+            return;
+        }
+        String response = backend.addRequest(username, receiver);
 
-            String response = backend.addRequest(username, receiver);
+        searchUser.clear();
+        searchUser.setInvalid(false);
 
-            searchUser.clear();
-            searchUser.setInvalid(false);
-
+        if (response == "success") {
             add(new Paragraph("📤 Request sent to: " + receiver + " (" + response + ")"));
+        }
         });
 
         add(searchHeader, searchUser, sendRequestBtn);
@@ -71,7 +72,8 @@ public class FriendsView extends VerticalLayout {
 
         if (pending.isEmpty()) {
             pendingList.add(new Paragraph("No pending requests."));
-        } else {
+        }
+        else {
             for (String sender : pending) {
 
                 Paragraph reqText = new Paragraph("Request from: " + sender);
